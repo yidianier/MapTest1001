@@ -4,16 +4,18 @@
 	<style type="text/css">
 		body, html {width: 100%;height: 100%;margin:0;font-family:"微软雅黑";}
 		#allmap{width:500px; height:300px; margin: 0 auto;}
-		#result{width:500px; height:500px; margin: 0 auto;}
+		#result{width:500px; height:auto; margin: 0 auto;}
 		p{margin-left:5px; font-size:14px;}
 	</style>
 	<script type="text/javascript" src="http://api.map.baidu.com/api?v=2.0&ak=qSxkGX9Gqh0oKXl06g6jEFMu"></script>
+	<script src="http://api.map.baidu.com/components?ak=qSxkGX9Gqh0oKXl06g6jEFMu&v=1.0"></script>
 	<script type="text/javascript" src="ShakeHand.js"></script>
 	<title>根据关键字本地搜索</title>
 </head>
 <body>
 	<div id="allmap"></div>
 	<div id="result"></div>
+	<lbs-nearby enable-geo="true" center="126,39" num="8" query="美食" radius="1000" type="list"></lbs-nearby>
 	<p>返回当前地点“美食”关键字的检索结果，并展示在地图上和面板上</p>
 </body>
 </html>
@@ -50,7 +52,10 @@
 
 				// 百度地图API功能
 	var map = new BMap.Map("allmap");          
-	map.centerAndZoom(new BMap.Point(longitude, latitude), 13);
+	var mapPoint = new BMap.Point(longitude, latitude);
+	map.centerAndZoom(mapPoint, 13);
+	map.addOverlay(new BMap.Marker(mapPoint));
+	map.panTo(mapPoint);
 	var local = new BMap.LocalSearch(map, {
 		renderOptions:{map: map, panel: "result"}
 	});
