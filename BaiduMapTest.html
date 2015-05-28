@@ -58,7 +58,7 @@
 	var circle = new BMap.Circle(mapPoint,1000,{fillColor:"lightblue", strokeWeight: 1 ,fillOpacity: 0.3, strokeOpacity: 0.3});
     map.addOverlay(circle);
     var local =  new BMap.LocalSearch(map, {renderOptions: {map: map,panel: "result", autoViewport: false}});  
-    local.searchNearby('美食',mPoint,10000);
+    local.searchNearby('美食',mapPoint,10000);
 		}
 
 window.onload = function() {
