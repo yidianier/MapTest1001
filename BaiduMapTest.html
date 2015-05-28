@@ -2,26 +2,26 @@
 <head>
 	<meta name="viewport" content="initial-scale=1.0, user-scalable=no" />
 	<style type="text/css">
-		body, html {width: 100%;height: 100%;margin:0;font-family:"Î¢ÈíÑÅºÚ";}
+		body, html {width: 100%;height: 100%;margin:0;font-family:"å¾®è½¯é›…é»‘";}
 		#allmap{width:1000px;height:500px; margin: 0 auto;}
 		p{margin-left:5px; font-size:14px;}
 	</style>
 	<script type="text/javascript" src="http://api.map.baidu.com/api?v=2.0&ak=qSxkGX9Gqh0oKXl06g6jEFMu"></script>
 	<script type="text/javascript" src="ShakeHand.js"></script>
-	<title>¸ù¾İ¹Ø¼ü×Ö±¾µØËÑË÷</title>
+	<title>æ ¹æ®å…³é”®å­—æœ¬åœ°æœç´¢</title>
 </head>
 <body>
 	<div id="allmap"></div>
-	<p>·µ»Ø±±¾©ÊĞ¡°¾°µã¡±¹Ø¼ü×ÖµÄ¼ìË÷½á¹û£¬²¢Õ¹Ê¾ÔÚµØÍ¼ÉÏ</p>
+	<p>è¿”å›åŒ—äº¬å¸‚â€œæ™¯ç‚¹â€å…³é”®å­—çš„æ£€ç´¢ç»“æœï¼Œå¹¶å±•ç¤ºåœ¨åœ°å›¾ä¸Š</p>
 </body>
 </html>
 <script type="text/javascript">
-	// °Ù¶ÈµØÍ¼API¹¦ÄÜ
+	// ç™¾åº¦åœ°å›¾APIåŠŸèƒ½
 	var map = new BMap.Map("allmap");          
 	map.centerAndZoom(new BMap.Point(116.404, 39.915), 11);
 	var local = new BMap.LocalSearch(map, {
 		renderOptions:{map: map}
 	});
 	map.enableScrollWheelZoom(true);	
-	local.search("¾°µã");
+	local.search("æ™¯ç‚¹");
 </script>
