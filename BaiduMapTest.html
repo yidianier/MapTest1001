@@ -5,7 +5,7 @@
 	<meta name="viewport" content="initial-scale=1.0, user-scalable=no" />
 	<style type="text/css">
 		body, html {width: 100%;height: 100%;margin:0;font-family:"微软雅黑";}
-		#allmap{width:100%;height:500px;}
+		#allmap{width:80%;height:500px;}
 		p{margin-left:5px; font-size:14px;}
 	</style>
 	<script type="text/javascript" src="http://api.map.baidu.com/api?v=2.0&ak=qSxkGX9Gqh0oKXl06g6jEFMu"></script>
@@ -13,7 +13,8 @@
 </head>
 <body>
 	<div id="allmap"></div>
-	<p>返回北京市地图上圆形覆盖范围内的“餐馆”检索结果，并展示在地图上</p>
+	<div id="result"></div>
+	<p>返回当前位置圆形覆盖范围内的“美食”检索结果，并展示在地图上</p>
 </body>
 </html>
 <script type="text/javascript">	
@@ -56,7 +57,7 @@
 
 	var circle = new BMap.Circle(mPoint,1000,{fillColor:"lightblue", strokeWeight: 1 ,fillOpacity: 0.3, strokeOpacity: 0.3});
     map.addOverlay(circle);
-    var local =  new BMap.LocalSearch(map, {renderOptions: {map: map, autoViewport: false}});  
+    var local =  new BMap.LocalSearch(map, {renderOptions: {map: map,panel: "result", autoViewport: false}});  
     local.searchNearby('美食',mPoint,5000);
 		}
 
