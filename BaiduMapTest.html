@@ -3,26 +3,23 @@
 <head>
 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 	<meta name="viewport" content="initial-scale=1.0, user-scalable=no" />
-	<script src="http://api.map.baidu.com/components?ak=qSxkGX9Gqh0oKXl06g6jEFMu&v=1.0"></script>
-	<title>检索周边美食</title>
 	<style type="text/css">
-		body, html,#allmap {width: 100%;height: 100%;overflow: hidden;margin:0;}
-		#golist {display: none;}
-		@media (max-device-width: 800px){#golist{display: block!important;}}
+		body, html {width: 100%;height: 100%;margin:0;font-family:"微软雅黑";}
+		#allmap{width:100%;height:500px;}
+		p{margin-left:5px; font-size:14px;}
 	</style>
+	<script type="text/javascript" src="http://api.map.baidu.com/api?v=2.0&ak=qSxkGX9Gqh0oKXl06g6jEFMu"></script>
+	<title>圆形区域搜索</title>
 </head>
 <body>
-	<a id="golist" href="../demolist.htm">返回demo列表页</a>
-    <lbs-nearby query="美食" radius="5000" type="map" style="height:100%" enable-geo="false"></lbs-nearby>
-    <lbs-map id="lbsmap" width="100px" style="height:100%" center="">
-    	<lbs-poi id="lbspoi" name="所在位置" location=""></lbs-poi>
-    </lbs-map>
+	<div id="allmap"></div>
+	<p>返回北京市地图上圆形覆盖范围内的“餐馆”检索结果，并展示在地图上</p>
 </body>
 </html>
-<script type="text/javascript">
-        function getLocation() {  
+<script type="text/javascript">	
+	function getLocation() {  
             //获取GPS坐标  
-            if (navigator.geolocation) { 
+            if (navigator.geolocation) {  
                 navigator.geolocation.getCurrentPosition(showMap, handleError, { enableHighAccuracy: true, maximumAge: 1000 });  
             } else {  
                 alert("您的浏览器不支持使用HTML 5来获取地理位置服务");  
@@ -50,16 +47,20 @@
             var longitude = value.coords.longitude;  
             var latitude = value.coords.latitude; 
 
-				// 百度地图API功能
-			var lbsmap = document.getElementById("lbsmap");
-			var lbspoi = document.getElementById("lbspoi");
-			
-			lbsmap.center = longitude + ", " + latitude;
-			lbspoi.location = longitude + ", " + latitude;
+	// 百度地图API功能
+	var map = new BMap.Map("allmap");            // 创建Map实例
+	var mapPoint = new BMap.Point(longitude, latitude);
+	map.centerAndZoom(mapPoint, 13);
+	map.addOverlay(new BMap.Marker(mapPoint));
+	map.panTo(mapPoint);
+
+	var circle = new BMap.Circle(mPoint,1000,{fillColor:"lightblue", strokeWeight: 1 ,fillOpacity: 0.3, strokeOpacity: 0.3});
+    map.addOverlay(circle);
+    var local =  new BMap.LocalSearch(map, {renderOptions: {map: map, autoViewport: false}});  
+    local.searchNearby('美食',mPoint,5000);
 		}
 
 window.onload = function() {
 getLocation();
 };
 </script>
-
