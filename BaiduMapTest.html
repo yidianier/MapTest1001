@@ -59,16 +59,47 @@ var searchText = "";
 
 	var circle = new BMap.Circle(mapPoint,1000,{fillColor:"lightblue", strokeWeight: 1 ,fillOpacity: 0.3, strokeOpacity: 0.3});
     map.addOverlay(circle);
-    var local =  new BMap.LocalSearch(map, {renderOptions: {map: map,panel: "result", autoViewport: false}});  
+    var local =  new BMap.LocalSearch(map, {renderOptions: {map: map,panel: "result", autoViewport: false}});
+	//var resultList = local.getResults();
     local.searchNearby(searchText,mapPoint,500);
 		}
 		
 window.onload = function() {
-getLocation();
+//getLocation();
 };
 
 document.getElementById("searchBtn").onclick = function() {	
 	searchText = document.getElementById("search").value;
 	getLocation();
 };
+
+var SHAKE_THRESHOLD = 3000;
+        var last_update = 0;
+        var x = y = z = last_x = last_y = last_z = 0;
+        function init() {
+            if (window.DeviceMotionEvent) {
+                window.addEventListener('devicemotion', deviceMotionHandler, false);
+            } else {
+                alert('not support mobile event');
+            }
+        }
+        function deviceMotionHandler(eventData) {
+            var acceleration = eventData.accelerationIncludingGravity;
+            var curTime = new Date().getTime();
+            if ((curTime - last_update) > 100) {
+                var diffTime = curTime - last_update;
+                last_update = curTime;
+                x = acceleration.x;
+                y = acceleration.y;
+                z = acceleration.z;
+                var speed = Math.abs(x + y + z - last_x - last_y - last_z) / diffTime * 10000;
+
+                if (speed > SHAKE_THRESHOLD) {
+					getLocation();
+                }
+                last_x = x;
+                last_y = y;
+                last_z = z;
+            }
+        }
 </script>
