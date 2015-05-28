@@ -48,6 +48,23 @@ function deviceMotionHandler(eventData) {
             }  
         }
 		
+		function handleError(value) {  
+            switch (value.code) {  
+                case 1:  
+                    alert("位置服务被拒绝");  
+                    break;  
+                case 2:  
+                    alert("暂时获取不到位置信息");  
+                    break;  
+                case 3:  
+                    alert("获取信息超时");  
+                    break;  
+                case 4:  
+                    alert("未知错误");  
+                    break;  
+            }  
+        }
+		
 		function showMap(value) {  
             var longitude = value.coords.longitude;  
             var latitude = value.coords.latitude; 
