@@ -14,13 +14,12 @@
 </head>
 <body>
 	<div id="allmap"></div>
-	<div id="result"></div>
-	<lbs-nearby enable-geo="true" city="上海" num="8" query="美食" radius="6000" type="list"></lbs-nearby>
+	<lbs-nearby query="美食" radius="1000" center="" type="map" style="height:100%"></lbs-nearby>
 	<p>返回当前地点“美食”关键字的检索结果，并展示在地图上和面板上</p>
 </body>
 </html>
 <script type="text/javascript">
-        function getLocation() {  
+        function getLocation() {
             //获取GPS坐标  
             if (navigator.geolocation) {  
                 navigator.geolocation.getCurrentPosition(showMap, handleError, { enableHighAccuracy: true, maximumAge: 1000 });  
@@ -50,18 +49,11 @@
             var longitude = value.coords.longitude;  
             var latitude = value.coords.latitude; 
 
-				// 百度地图API功能
-	var map = new BMap.Map("allmap");          
+				// 百度地图API功能        
 	var mapPoint = new BMap.Point(longitude, latitude);
-	map.centerAndZoom(mapPoint, 13);
-	map.addOverlay(new BMap.Marker(mapPoint));
-	map.panTo(mapPoint);
-	var local = new BMap.LocalSearch(map, {
-		renderOptions:{map: map, panel: "result"}
-	});
-	map.enableScrollWheelZoom(true);	
-	local.search("美食");
-		}
+	var mapCenter = document.getElementsByTagName("center");
+	mapCenter.value = longitude + ", " + latitude;
+	}	
 
 window.onload = function() {
 getLocation();
