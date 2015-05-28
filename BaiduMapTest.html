@@ -55,6 +55,7 @@ var searchText = "";
 	var mapPoint = new BMap.Point(longitude+0.01085, latitude+0.00368);
 	map.centerAndZoom(mapPoint, 15);
 	map.addOverlay(new BMap.Marker(mapPoint));
+	map.setIcon(icon:image/location.png);
 	map.panTo(mapPoint);
 
 	var circle = new BMap.Circle(mapPoint,1000,{fillColor:"lightblue", strokeWeight: 1 ,fillOpacity: 0.3, strokeOpacity: 0.3});
