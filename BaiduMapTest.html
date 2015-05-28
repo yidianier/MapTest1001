@@ -51,14 +51,14 @@
 	// 百度地图API功能
 	var map = new BMap.Map("allmap");            // 创建Map实例
 	var mapPoint = new BMap.Point(longitude+0.01085, latitude+0.00368);
-	map.centerAndZoom(mapPoint, 13);
+	map.centerAndZoom(mapPoint, 11);
 	map.addOverlay(new BMap.Marker(mapPoint));
 	map.panTo(mapPoint);
 
 	var circle = new BMap.Circle(mapPoint,1000,{fillColor:"lightblue", strokeWeight: 1 ,fillOpacity: 0.3, strokeOpacity: 0.3});
     map.addOverlay(circle);
     var local =  new BMap.LocalSearch(map, {renderOptions: {map: map,panel: "result", autoViewport: false}});  
-    local.searchNearby('美食',mPoint,5000);
+    local.searchNearby('美食',mPoint,10000);
 		}
 
 window.onload = function() {
