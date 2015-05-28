@@ -14,6 +14,52 @@
 <body>
 	<a id="golist" href="../demolist.htm">返回demo列表页</a>
     <lbs-nearby query="美食" radius="5000" type="map" style="height:100%" enable-geo="false"></lbs-nearby>
+    <lbs-map id="lbsmap" width="100px" style="height:100%" center="">
+    	<lbs-poi id="lbspoi" name="所在位置" location=""></lbs-poi>
+    </lbs-map>
 </body>
 </html>
+<script type="text/javascript">
+        function getLocation() {  
+            //获取GPS坐标  
+            if (navigator.geolocation) { 
+                navigator.geolocation.getCurrentPosition(showMap, handleError, { enableHighAccuracy: true, maximumAge: 1000 });  
+            } else {  
+                alert("您的浏览器不支持使用HTML 5来获取地理位置服务");  
+            }  
+        }
+		
+		function handleError(value) {  
+            switch (value.code) {  
+                case 1:  
+                    alert("位置服务被拒绝");  
+                    break;  
+                case 2:  
+                    alert("暂时获取不到位置信息");  
+                    break;  
+                case 3:  
+                    alert("获取信息超时");  
+                    break;  
+                case 4:  
+                    alert("未知错误");  
+                    break;  
+            }  
+        }
+		
+		function showMap(value) {  
+            var longitude = value.coords.longitude;  
+            var latitude = value.coords.latitude; 
+
+				// 百度地图API功能
+			var lbsmap = document.getElementById("lbsmap");
+			var lbspoi = document.getElementById("lbspoi");
+			
+			lbsmap.center = longitude + ", " + latitude;
+			lbspoi.location = longitude + ", " + latitude;
+		}
+
+window.onload = function() {
+getLocation();
+};
+</script>
 
