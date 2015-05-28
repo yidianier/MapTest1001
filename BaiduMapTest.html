@@ -60,14 +60,15 @@ var searchText = "";
 	var circle = new BMap.Circle(mapPoint,1000,{fillColor:"lightblue", strokeWeight: 1 ,fillOpacity: 0.3, strokeOpacity: 0.3});
     map.addOverlay(circle);
     var local =  new BMap.LocalSearch(map, {renderOptions: {map: map,panel: "result", autoViewport: false}});
-	var resultList = local.getResults();
-	if (resultList.getNumPois() <=5) {
-		local.searchNearby(searchText,mapPoint,1000);
-	} else {
-		local.searchNearby(searchText,mapPoint,3000);
-		map.centerAndZoom(mapPoint, 12);
-		map.addOverlay(new BMap.Marker(mapPoint));
-		map.panTo(mapPoint);
+	//var resultList = local.getResults();
+	//if (resultList.getNumPois() <=5) {
+	//	local.searchNearby(searchText,mapPoint,1000);
+	//} else {
+	//	local.searchNearby(searchText,mapPoint,3000);
+	//	map.centerAndZoom(mapPoint, 12);
+	//	map.addOverlay(new BMap.Marker(mapPoint));
+	//	map.panTo(mapPoint);
+	local.searchNearby(searchText,mapPoint,1000);
 	}
 		}
 		
