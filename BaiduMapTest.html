@@ -3,7 +3,7 @@
 	<meta name="viewport" content="initial-scale=1.0, user-scalable=no" />
 	<style type="text/css">
 		body, html {width: 100%;height: 100%;margin:0;font-family:"微软雅黑";}
-		#allmap{width:1000px;height:500px; margin: 0 auto;}
+		#allmap{width:500px;height:300px; margin: 0 auto;}
 		p{margin-left:5px; font-size:14px;}
 	</style>
 	<script type="text/javascript" src="http://api.map.baidu.com/api?v=2.0&ak=qSxkGX9Gqh0oKXl06g6jEFMu"></script>
@@ -24,4 +24,34 @@
 	});
 	map.enableScrollWheelZoom(true);	
 	local.search("景点");
+</script>
+<script type="text/javascript">
+var SHAKE_THRESHOLD = xxx;    
+var last_update = 0;    
+var x, y, z, last_x, last_y, last_z;
+        
+function deviceMotionHandler(eventData) {    
+	var acceleration =eventData.accelerationIncludingGravity;    
+	var curTime = newDate().getTime();    
+	if ((curTime - lastUpdate)> 100) {      
+		var diffTime = curTime -last_update;    
+		last_update = curTime;        
+		x = acceleration.x;    
+		y = acceleration.y;    
+		z = acceleration.z;    
+		var speed = Math.abs(x +y + z - last_x - last_y - last_z) / diffTime * 10000;        
+		if (speed > SHAKE_THRESHOLD) {    
+			alert("shaked!");    
+		}    
+		last_x = x;    
+		last_y = y;    
+		last_z = z;    
+	}
+}
+
+window.onload = function() {
+	if (window.DeviceMotionEvent) {  
+		window.addEventListener('devicemotion',deviceMotionHandler, false);  
+	} 
+};
 </script>
