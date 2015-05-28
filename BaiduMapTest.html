@@ -1,60 +1,28 @@
+<!DOCTYPE html>
 <html>
 <head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 	<meta name="viewport" content="initial-scale=1.0, user-scalable=no" />
 	<style type="text/css">
-		body, html {width: 100%;height: 100%;margin:0;font-family:"微软雅黑";}
-		#allmap{width:500px; height:300px; margin: 0 auto;}
-		#result{width:500px; height:auto; margin: 0 auto;}
-		p{margin-left:5px; font-size:14px;}
+		body, html,#allmap {width: 100%;height: 100%;overflow: hidden;margin:0;}
+		#golist {display: none;}
+		@media (max-device-width: 780px){#golist{display: block !important;}}
 	</style>
-	<script type="text/javascript" src="http://api.map.baidu.com/api?v=2.0&ak=qSxkGX9Gqh0oKXl06g6jEFMu"></script>
-	<script src="http://api.map.baidu.com/components?ak=qSxkGX9Gqh0oKXl06g6jEFMu&v=1.0"></script>
-	<script type="text/javascript" src="ShakeHand.js"></script>
-	<title>根据关键字本地搜索</title>
+	<script type="text/javascript" src="http://api.map.baidu.com/api?type=quick&ak=qSxkGX9Gqh0oKXl06g6jEFMu&v=1.0"></script>
+	<title>根据中心关键词周边搜索</title>
 </head>
 <body>
-	<lbs-nearby enable-geo="false" query="美食" radius="1000" center="" type="map" style="height:100%"></lbs-nearby>
-	<lbs-nearby enable-geo="false" query="美食" radius="1000" center="" type="list" style="height:100%"></lbs-nearby>
+	<a id="golist" href="../demolist.htm">返回demo列表页</a>
+	<div id="allmap"></div>
 </body>
 </html>
 <script type="text/javascript">
-        function getLocation() {
-            //获取GPS坐标  
-            if (navigator.geolocation) {  
-                navigator.geolocation.getCurrentPosition(showMap, handleError, { enableHighAccuracy: true, maximumAge: 1000 });  
-            } else {  
-                alert("您的浏览器不支持使用HTML 5来获取地理位置服务");  
-            }  
-        }
-		
-		function handleError(value) {  
-            switch (value.code) {  
-                case 1:  
-                    alert("位置服务被拒绝");  
-                    break;  
-                case 2:  
-                    alert("暂时获取不到位置信息");  
-                    break;  
-                case 3:  
-                    alert("获取信息超时");  
-                    break;  
-                case 4:  
-                    alert("未知错误");  
-                    break;  
-            }  
-        }
-		
-		function showMap(value) {  
-            var longitude = value.coords.longitude;  
-            var latitude = value.coords.latitude; 
-
-				// 百度地图API功能        
-	var mapPoint = new BMap.Point(longitude, latitude);
-	var mapCenter = document.getElementsByTagName("center");
-	//mapCenter.value = longitude + ", " + latitude;
-	}	
-
-window.onload = function() {
-getLocation();
-};
+	// 百度地图API功能
+	var map = new BMap.Map("allmap");          
+	map.centerAndZoom(new BMap.Point(116.404, 40.0), 15);
+	map.addControl(new BMap.ZoomControl());      
+	var local = new BMap.LocalSearch(map, {
+		renderOptions:{map: map, autoViewport:true}
+	});
+	local.searchNearby("美食");
 </script>
