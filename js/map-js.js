@@ -2,6 +2,8 @@
 window.onload = function() {	
 	//Show temp map;
 	showTempMap();
+	
+	showSHTempMap();
 		
 	if (window.DeviceMotionEvent) {
 		window.addEventListener('devicemotion', deviceMotionHandler, false);
@@ -34,6 +36,9 @@ var x = y = z = last_x = last_y = last_z = 0;
 var searchText = "";
 
 function showMap(value) {
+	var shmap = document.getElementById("shmap");
+	shmap.style.display = none;
+	
 	var longitude = value.coords.longitude;  
     var latitude = value.coords.latitude; 
 	
@@ -61,6 +66,16 @@ function showTempMap() {
     var map = new BMap.Map("allmap");          
 	var mapPoint = new BMap.Point(113.42, 34.44);
     map.centerAndZoom(mapPoint, 5);
+	map.disableDragging();	
+	map.enableScrollWheelZoom();
+    var local =  new BMap.LocalSearch(map, {renderOptions: {map: map, autoViewport: false}});
+}
+
+function showSHTempMap() {
+    // Baidu Map API function
+    var map = new BMap.Map("shmap");          
+	var mapPoint = new BMap.Point(121.48, 31.22);
+    map.centerAndZoom(mapPoint, 11);
 	map.disableDragging();	
 	map.enableScrollWheelZoom();
     var local =  new BMap.LocalSearch(map, {renderOptions: {map: map, autoViewport: false}});

@@ -216,11 +216,19 @@ hr {
 #result {
 	width: 99%;
 	height: 460px;
+	border-radius: 3px;
 	border: #20b2aa 1px solid;
 }
 #result {
 	height: auto;
 	border: none;
+}
+
+#shmap {
+	width: 100%;
+	height: 460px;
+	display: block;	
+	border-radius: 3px;
 }
 
  /* when view area 980px */
