@@ -16,7 +16,7 @@ body {
 
 body {
 	font-family: "Microsoft YaHei";
-	background-color: #666;
+	background-color: #454545;
 }
 
 /* html5 element style */
@@ -110,7 +110,8 @@ textarea
 	line-height: 30px;
 	text-align: center;
 	margin-bottom: 10px;
-	color: #cdcdcd;
+	color: #cdcdcd;	
+	font-family: "Microsoft YaHei";
 }
 
 hr {
@@ -185,7 +186,7 @@ hr {
 	float: left;
 	overflow: hidden;
 	display: inline-block;
-	width: 28%;	
+	width: 30%;	
 	height: 28px;
 	line-height: 28px;
 	border: 0px transparent;
@@ -194,6 +195,8 @@ hr {
 	border-top-right-radius: 5px;
 	border-bottom-right-radius: 5px;
 	cursor: pointer;
+	font-size: 16px;
+	font-family: "Microsoft YaHei";
 }
 
 #allmap,
@@ -211,13 +214,13 @@ hr {
 @media screen and (max-width: 980px) {
 	.map-container {width: 80%;}
 	 .item {width: 100%; margin: 0 auto;}
-     #footer {padding: 8% 5%;margin-bottom: 10px;}
+     #footer {padding: 8% 5%;margin-bottom: 5px;}
 }
  /* when view area < 650px */
 @media screen and (max-width: 650px) {
 	.map-container {width: 100%;}
-	 .item {width: 100%; margin: 10px auto;}
-     #footer {padding: 8% 5%;margin-bottom: 10px;}
+	 .item {width: 100%; margin: 5px auto;}
+     #footer {padding: 8% 5%;margin-bottom: 5px;}
  }
 
 

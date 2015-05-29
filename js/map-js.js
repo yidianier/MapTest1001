@@ -73,7 +73,7 @@ function getLocation() {
     if (navigator.geolocation) {
         navigator.geolocation.getCurrentPosition(showMap, handleError, { enableHighAccuracy: true, maximumAge: 1000 });  
     } else {  
-        alert("Your browser cannot support the geo-location service by HTML5!";
+        alert("Your browser cannot support the geo-location service by HTML5!");
     }
 }
 
