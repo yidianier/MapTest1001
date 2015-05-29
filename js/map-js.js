@@ -1,7 +1,6 @@
 /* entrance */
 window.onload = function() {	
 	//Show temp map;
-	showTempMap();
 	
 	showSHTempMap();
 		
@@ -62,15 +61,6 @@ function showMap(value) {
 	local.searchNearby(searchText, mapPoint, 800);
 }
 
-function showTempMap() {
-    // Baidu Map API function
-    var map = new BMap.Map("allmap"); 
-	var mapPoint = new BMap.Point(113.42, 34.44);
-    map.centerAndZoom(mapPoint, 5);
-	map.disableDragging();	
-	map.enableScrollWheelZoom();
-    var local =  new BMap.LocalSearch(map, {renderOptions: {map: map, autoViewport: false}});
-}
 
 function showSHTempMap() {
     // Baidu Map API function
