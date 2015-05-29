@@ -12,8 +12,11 @@ window.onload = function() {
 };
 
 function showMap(value) {
+	var searchText = "";
 	var longitude = value.coords.longitude;  
     var latitude = value.coords.latitude; 
+	
+	searchText = document.getElementById("search");
 
     // Baidu Map API function
     var map = new BMap.Map("allmap");          
