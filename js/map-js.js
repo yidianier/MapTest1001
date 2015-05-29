@@ -40,7 +40,7 @@ var x = y = z = last_x = last_y = last_z = 0;
 
 var searchText = "美食";
 
-function showMap2(value) {	
+function showMap(value) {	
 	var longitude = value.coords.longitude;  
     var latitude = value.coords.latitude; 
 	
@@ -63,33 +63,6 @@ function showMap2(value) {
 	local.searchNearby(searchText, mapPoint, 800);
 }
 
-		function showMap(value) {  
-            var longitude = value.coords.longitude;  
-            var latitude = value.coords.latitude; 
-
-	// 百度地图API功能
-	var map = new BMap.Map("allmap");            // 创建Map实例
-	var mapPoint = new BMap.Point(longitude+0.01085, latitude+0.00368);
-	map.centerAndZoom(mapPoint, 15);
-	map.addOverlay(new BMap.Marker(mapPoint));
-	map.panTo(mapPoint);
-
-	var circle = new BMap.Circle(mapPoint,1000,{fillColor:"lightblue", strokeWeight: 1 ,fillOpacity: 0.3, strokeOpacity: 0.3});
-    map.addOverlay(circle);
-    var local =  new BMap.LocalSearch(map, {renderOptions: {map: map,panel: "result", autoViewport: false}});
-	//var resultList = local.getResults();
-	//if (resultList.getNumPois() <=5) {
-	//	local.searchNearby(searchText,mapPoint,1000);
-	//} else {
-	//	local.searchNearby(searchText,mapPoint,3000);
-	//	map.centerAndZoom(mapPoint, 12);
-	//	map.addOverlay(new BMap.Marker(mapPoint));
-	//	map.panTo(mapPoint);
-	//}
-	local.clearResults();
-	local.searchNearby(searchText,mapPoint,1000);
-		}
-
 function showTempMap() {
     // Baidu Map API function
     var map = new BMap.Map("allmap");          
@@ -108,6 +81,7 @@ function showSHTempMap() {
 	map.disableDragging();	
 	map.enableScrollWheelZoom();
     var local =  new BMap.LocalSearch(map, {renderOptions: {map: map, autoViewport: false}});
+	local.searchNearby(searchText, mapPoint, 800);
 }
 
 function getLocation() {
