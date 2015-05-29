@@ -34,10 +34,11 @@ function showMap(value) {
     map.addOverlay(new BMap.Marker(mapPoint));
     map.panTo(mapPoint);
 	
-	var circle = new BMap.Circle(mapPoint, 1000, {fillColor:"lightblue", strokeWeight: 1, fillOpacity: 0.3, strokeOpacity: 0.3});
-    map.addOverlay(circle);
 	map.enableScrollWheelZoom(); 
 	map.disableDragging();
+	
+	var circle = new BMap.Circle(mapPoint, 1000, {fillColor:"lightblue", strokeWeight: 1, fillOpacity: 0.3, strokeOpacity: 0.3});
+    map.addOverlay(circle);
 	
     var local =  new BMap.LocalSearch(map, {renderOptions: {map: map, panel: "result", autoViewport: false}});
 	
@@ -50,8 +51,7 @@ function showTempMap() {
     var map = new BMap.Map("allmap");          
 	var mapPoint = new BMap.Point(113.42, 34.44);
     map.centerAndZoom(mapPoint, 5);
-	map.disableDragging();
-	
+	map.disableDragging();	
 	map.enableScrollWheelZoom();
     var local =  new BMap.LocalSearch(map, {renderOptions: {map: map, autoViewport: false}});
 }
