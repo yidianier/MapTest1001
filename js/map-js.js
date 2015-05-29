@@ -37,7 +37,7 @@ function showMap(value) {
 	var longitude = value.coords.longitude;  
     var latitude = value.coords.latitude; 
 	
-	searchText = document.getElementById("search");
+	searchText = document.getElementById("search").value;
 
     // Baidu Map API function
     var map = new BMap.Map("allmap");          
