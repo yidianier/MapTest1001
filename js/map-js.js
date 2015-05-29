@@ -58,7 +58,6 @@ function showMap(value) {
 		
 	map.enableScrollWheelZoom(); 
 	map.disableDragging();	
-	map.reset();
 	local.clearResults();
 	local.searchNearby(searchText, mapPoint, 800);
 }
@@ -70,7 +69,6 @@ function showTempMap() {
     map.centerAndZoom(mapPoint, 5);
 	map.disableDragging();	
 	map.enableScrollWheelZoom();
-	map.reset();
     var local =  new BMap.LocalSearch(map, {renderOptions: {map: map, autoViewport: false}});
 }
 
@@ -82,7 +80,6 @@ function showSHTempMap() {
 	map.disableDragging();	
 	map.enableScrollWheelZoom();
 	
-	map.reset();
     var local =  new BMap.LocalSearch(map, {renderOptions: {map: map, autoViewport: false}});
 }
 
