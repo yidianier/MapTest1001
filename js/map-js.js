@@ -10,7 +10,7 @@ window.onload = function() {
 	}
 };
 
-var SHAKE_THRESHOLD = 3000;
+var SHAKE_THRESHOLD = 2000;
 var last_update = 0;
 var x = y = z = last_x = last_y = last_z = 0;
 
@@ -25,7 +25,7 @@ function showMap(value) {
     // Baidu Map API function
     var map = new BMap.Map("allmap");          
 	var mapPoint = new BMap.Point(longitude+0.01085, latitude+0.00368);
-    map.centerAndZoom(mapPoint, 13);
+    map.centerAndZoom(mapPoint, 15);
     map.addOverlay(new BMap.Marker(mapPoint));
     map.panTo(mapPoint);
 	
