@@ -191,24 +191,7 @@ hr {
 	border-bottom-left-radius: 5px;
 }
 
-#searchBtn {
-	float: left;
-	overflow: hidden;
-	display: inline-block;
-	width: 30%;	
-	height: 28px;
-	line-height: 28px;
-	border: 0px transparent;
-	background-color: #20b2aa;
-	color: #fff;	
-	border-radius: none;
-	border-top-right-radius: 5px;
-	border-bottom-right-radius: 5px;
-	cursor: pointer;
-	font-size: 16px;
-	font-family: "Microsoft YaHei";
-	-webkit-appearance: none;
-}
+
 
 #allmap,
 #result {
@@ -217,27 +200,5 @@ hr {
 	border-radius: 3px;
 	border: #20b2aa 1px solid;
 }
-#result {
-	height: auto;
-	min-height: 460px;
-	border: none;
-}
 
- /* when view area 980px */
-@media screen and (max-width: 980px) {
-	.map-container {width: 80%;}
-	 .item {width: 100%; margin: 0 auto;}	 
-	 .nav {width: 99%; margin: 0 auto;}
-	 #search {width: 68%;}
-	 #searchBtn {width: 30%;}
-     #footer {padding: 8% 5%;margin-bottom: 5px;}
-}
- /* when view area < 650px */
-@media screen and (max-width: 650px) {
-	.map-container {width: 100%;}
-	 .item {width: 100%; margin: 5px auto;}
-	 .nav {width: 100%; margin: 0px auto;}
-	 #search {width: 60%;}
-	 #searchBtn {width: 20%;}
-     #footer {padding: 8% 5%;margin-bottom: 5px;}
- }
+

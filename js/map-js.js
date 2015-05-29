@@ -1,6 +1,9 @@
 /* entrance */
 window.onload = function() {	
 	//Show temp map;
+	showTempMap();
+	
+	showSHTempMap();
 		
 	if (window.DeviceMotionEvent) {
 		window.addEventListener('devicemotion', deviceMotionHandler, false);
@@ -11,22 +14,38 @@ window.onload = function() {
 	document.getElementById("searchBtn").onclick = function() {		
 		searchText = document.getElementById("search").value;
 		searchMap();
-	};	
-
+	};
+	
+	document.getElementById("li-js1").onclick = function() {
+		searchText = "美食";
+		searchMap();
+	};
+	document.getElementById("li-js2").onclick = function() {
+		searchText = "酒店";
+		searchMap();
+	};
+	document.getElementById("li-js3").onclick = function() {
+		searchText = "银行";
+		searchMap();
+	};
+	document.getElementById("li-js4").onclick = function() {
+		searchText = "公交站";
+		searchMap();
+	};
 };
 
 var SHAKE_THRESHOLD = 1500;
 var last_update = 0;
 var x = y = z = last_x = last_y = last_z = 0;
 
-var searchText = "美食";
+var searchText = "";
 
 function showMap(value) {	
 	var longitude = value.coords.longitude;  
     var latitude = value.coords.latitude; 
 	
     // Baidu Map API function
-    var map = new BMap.Map("allmap"); 
+    var map = new BMap.Map("allmap");          
 	var mapPoint = new BMap.Point(longitude+0.01085, latitude+0.00368);
     map.centerAndZoom(mapPoint, 15);
     map.addOverlay(new BMap.Marker(mapPoint));
@@ -38,11 +57,31 @@ function showMap(value) {
     var local =  new BMap.LocalSearch(map, {renderOptions: {map: map, panel: "result", autoViewport: false}});
 		
 	map.enableScrollWheelZoom(); 
-	map.disableDragging();	
+	map.disableDragging();
+	
 	local.clearResults();
 	local.searchNearby(searchText, mapPoint, 800);
 }
 
+function showTempMap() {
+    // Baidu Map API function
+    var map = new BMap.Map("allmap");          
+	var mapPoint = new BMap.Point(113.42, 34.44);
+    map.centerAndZoom(mapPoint, 5);
+	map.disableDragging();	
+	map.enableScrollWheelZoom();
+    var local =  new BMap.LocalSearch(map, {renderOptions: {map: map, autoViewport: false}});
+}
+
+function showSHTempMap() {
+    // Baidu Map API function
+    var map = new BMap.Map("result");          
+	var mapPoint = new BMap.Point(121.48, 31.22);
+    map.centerAndZoom(mapPoint, 11);
+	map.disableDragging();	
+	map.enableScrollWheelZoom();
+    var local =  new BMap.LocalSearch(map, {renderOptions: {map: map, autoViewport: false}});
+}
 
 function getLocation() {
 	//Get geo location  
