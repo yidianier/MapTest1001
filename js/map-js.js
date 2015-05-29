@@ -46,7 +46,6 @@ function showMap(value) {
 	
     // Baidu Map API function
     var map = new BMap.Map("allmap"); 
-	map.clearOverlays();
 	var mapPoint = new BMap.Point(longitude+0.01085, latitude+0.00368);
     map.centerAndZoom(mapPoint, 15);
     map.addOverlay(new BMap.Marker(mapPoint));
@@ -58,31 +57,32 @@ function showMap(value) {
     var local =  new BMap.LocalSearch(map, {renderOptions: {map: map, panel: "result", autoViewport: false}});
 		
 	map.enableScrollWheelZoom(); 
-	map.disableDragging();
-	
+	map.disableDragging();	
+	map.reset();
 	local.clearResults();
 	local.searchNearby(searchText, mapPoint, 800);
 }
 
 function showTempMap() {
     // Baidu Map API function
-    var map = new BMap.Map("allmap");  
-	map.clearOverlays();
+    var map = new BMap.Map("allmap"); 
 	var mapPoint = new BMap.Point(113.42, 34.44);
     map.centerAndZoom(mapPoint, 5);
 	map.disableDragging();	
 	map.enableScrollWheelZoom();
+	map.reset();
     var local =  new BMap.LocalSearch(map, {renderOptions: {map: map, autoViewport: false}});
 }
 
 function showSHTempMap() {
     // Baidu Map API function
-    var map = new BMap.Map("result");    
-	map.clearOverlays();
+    var map = new BMap.Map("result");  
 	var mapPoint = new BMap.Point(121.48, 31.22);
     map.centerAndZoom(mapPoint, 11);
 	map.disableDragging();	
 	map.enableScrollWheelZoom();
+	
+	map.reset();
     var local =  new BMap.LocalSearch(map, {renderOptions: {map: map, autoViewport: false}});
 }
 
