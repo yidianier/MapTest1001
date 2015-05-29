@@ -45,7 +45,8 @@ function showMap(value) {
     var latitude = value.coords.latitude; 
 	
     // Baidu Map API function
-    var map = new BMap.Map("allmap");          
+    var map = new BMap.Map("allmap"); 
+	map.clearOverlays();
 	var mapPoint = new BMap.Point(longitude+0.01085, latitude+0.00368);
     map.centerAndZoom(mapPoint, 15);
     map.addOverlay(new BMap.Marker(mapPoint));
@@ -65,7 +66,8 @@ function showMap(value) {
 
 function showTempMap() {
     // Baidu Map API function
-    var map = new BMap.Map("allmap");          
+    var map = new BMap.Map("allmap");  
+	map.clearOverlays();
 	var mapPoint = new BMap.Point(113.42, 34.44);
     map.centerAndZoom(mapPoint, 5);
 	map.disableDragging();	
@@ -75,13 +77,13 @@ function showTempMap() {
 
 function showSHTempMap() {
     // Baidu Map API function
-    var map = new BMap.Map("result");          
+    var map = new BMap.Map("result");    
+	map.clearOverlays();
 	var mapPoint = new BMap.Point(121.48, 31.22);
     map.centerAndZoom(mapPoint, 11);
 	map.disableDragging();	
 	map.enableScrollWheelZoom();
     var local =  new BMap.LocalSearch(map, {renderOptions: {map: map, autoViewport: false}});
-	local.searchNearby(searchText, mapPoint, 800);
 }
 
 function getLocation() {
