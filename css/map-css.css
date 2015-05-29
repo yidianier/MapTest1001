@@ -122,14 +122,6 @@ input[type="button"], input[type="submit"], input[type="reset"] {
 	font-family: "Microsoft YaHei";
 }
 
-hr {
-	height: 2px;
-	border: transparent;
-	border-bottom: 1px solid #fff;
-	box-shadow: 0 1px 1px #bcbcbc;
-	margin-bottom: 10px;
-}
-
 .item {
 	float: left;
 	overflow: hidden;
@@ -177,39 +169,6 @@ hr {
 	border: none;
 }
 
-#search {
-	float: left;
-	overflow: hidden;
-	display: inline-block;
-	width: 68%;
-	height: 20px;
-	line-height: 20px;
-	padding: 4px;
-	border: 0px transparent;
-	border-radius: none;
-	border-top-left-radius: 5px;
-	border-bottom-left-radius: 5px;
-}
-
-#searchBtn {
-	float: left;
-	overflow: hidden;
-	display: inline-block;
-	width: 30%;	
-	height: 28px;
-	line-height: 28px;
-	border: 0px transparent;
-	background-color: #20b2aa;
-	color: #fff;	
-	border-radius: none;
-	border-top-right-radius: 5px;
-	border-bottom-right-radius: 5px;
-	cursor: pointer;
-	font-size: 16px;
-	font-family: "Microsoft YaHei";
-	-webkit-appearance: none;
-}
-
 #allmap,
 #result {
 	width: 99%;
@@ -217,11 +176,7 @@ hr {
 	border-radius: 3px;
 	border: #20b2aa 1px solid;
 }
-#result {
-	height: auto;
-	min-height: 460px;
-	border: none;
-}
+
 
  /* when view area 980px */
 @media screen and (max-width: 980px) {
