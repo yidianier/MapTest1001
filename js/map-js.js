@@ -1,6 +1,5 @@
 /* entrance */
-window.onload = function() {
-	
+window.onload = function() {	
 	//Show temp map;
 	showTempMap();
 	
@@ -88,6 +87,7 @@ function deviceMotionHandler(eventData) {
         var speed = Math.abs(x + y + z - last_x - last_y - last_z) / diffTime * 10000;
 
         if (speed > SHAKE_THRESHOLD) {
+			document.getElementById("map-header").innerHTML = "shake"
             getLocation();
         }
         last_x = x;
