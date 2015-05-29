@@ -35,10 +35,7 @@ var x = y = z = last_x = last_y = last_z = 0;
 
 var searchText = "";
 
-function showMap(value) {
-	var shmap = document.getElementById("shmap");
-	shmap.style.display = none;
-	
+function showMap(value) {	
 	var longitude = value.coords.longitude;  
     var latitude = value.coords.latitude; 
 	
@@ -73,7 +70,7 @@ function showTempMap() {
 
 function showSHTempMap() {
     // Baidu Map API function
-    var map = new BMap.Map("shmap");          
+    var map = new BMap.Map("result");          
 	var mapPoint = new BMap.Point(121.48, 31.22);
     map.centerAndZoom(mapPoint, 11);
 	map.disableDragging();	
