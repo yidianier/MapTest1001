@@ -136,7 +136,7 @@ hr {
 	float: left;
 	overflow: hidden;
 	display: inline-block;
-	height: 500px;
+	height: auto;
 	width: 49.5%;
 }
 
@@ -216,10 +216,10 @@ hr {
 #result {
 	width: 99%;
 	height: 460px;
-	border-radius: 2px;
 	border: #20b2aa 1px solid;
 }
 #result {
+	height: auto;
 	border: none;
 }
 
