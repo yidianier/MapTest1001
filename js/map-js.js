@@ -34,7 +34,7 @@ function showTempMap() {
     // Baidu Map API function
     var map = new BMap.Map("allmap");          
 	var mapPoint = new BMap.Point(113.42, 34.44);
-    map.centerAndZoom(mapPoint, 7);
+    map.centerAndZoom(mapPoint, 5);
 	//map.disableDragging();
 	
 	map.enableScrollWheelZoom();

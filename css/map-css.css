@@ -12,7 +12,6 @@ html,
 body {
 	width: 100%;
 	margin: 0 auto;
-	overflow: hidden;
 }
 
 /* html5 element style */
@@ -73,11 +72,19 @@ textarea
 }
 /* common style -- */
 
+.map-container {
+	width: 80%;
+	margin: 0 auto;
+	overflowY: auto;
+}
+
 .map-header,
 .map-body,
 .map-footer {
-	width: 80%;
-	min-width: 480px;
+	float: left;
+	overflow: hidden;
+	display: inline-block;
+	width: 100%;
 	margin: 0 auto;
 }
 
@@ -88,14 +95,10 @@ textarea
 }
 
 .map-body {
-	position: absolute;
-	margin-top: 40px;
 	border: blue 1px solid;
 }
 
 .map-footer {
-	position: absolute;
-	bottom: 0;
 	height: 30px;
 	border: red 1px solid;
 }
@@ -109,12 +112,6 @@ textarea
 	border: blue 1px dotted;
 }
 
-.pull-right {
-	float: right;
-	overflow: hidden;
-	display: inline-block;
-}
-
 .nav {
 	height: 30px;
 	border: orange 1px solid;
@@ -125,6 +122,19 @@ textarea
 	width: 100%;
 	height: 100%;
 }
+
+ /* when view area 980px */
+@media screen and (max-width: 980px) {
+	.map-container {width: 80%;}
+	 .item {width: 100%;}
+     #footer {padding: 8% 5%;margin-bottom: 10px;}
+}
+ /* when view area < 650px */
+@media screen and (max-width: 650px) {
+	.map-container {width: 100%;}
+	 .item {width: 100%;}
+     #footer {padding: 8% 5%;margin-bottom: 10px;}
+ }
 
 
 
