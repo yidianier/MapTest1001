@@ -1,8 +1,6 @@
 /* entrance */
 window.onload = function() {	
 	//Show temp map;
-	
-	showSHTempMap();
 		
 	if (window.DeviceMotionEvent) {
 		window.addEventListener('devicemotion', deviceMotionHandler, false);
@@ -13,24 +11,8 @@ window.onload = function() {
 	document.getElementById("searchBtn").onclick = function() {		
 		searchText = document.getElementById("search").value;
 		searchMap();
-	};
-	
-	document.getElementById("li-js1").onclick = function() {
-		searchText = "美食";
-		searchMap();
-	};
-	document.getElementById("li-js2").onclick = function() {
-		searchText = "酒店";
-		searchMap();
-	};
-	document.getElementById("li-js3").onclick = function() {
-		searchText = "银行";
-		searchMap();
-	};
-	document.getElementById("li-js4").onclick = function() {
-		searchText = "公交站";
-		searchMap();
-	};
+	};	
+
 };
 
 var SHAKE_THRESHOLD = 1500;
@@ -61,17 +43,6 @@ function showMap(value) {
 	local.searchNearby(searchText, mapPoint, 800);
 }
 
-
-function showSHTempMap() {
-    // Baidu Map API function
-    var map = new BMap.Map("result");  
-	var mapPoint = new BMap.Point(121.48, 31.22);
-    map.centerAndZoom(mapPoint, 11);
-	map.disableDragging();	
-	map.enableScrollWheelZoom();
-	
-    var local =  new BMap.LocalSearch(map, {renderOptions: {map: map, autoViewport: false}});
-}
 
 function getLocation() {
 	//Get geo location  
