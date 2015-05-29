@@ -3,6 +3,8 @@ window.onload = function() {
 	//Show temp map;
 	showTempMap();
 	
+	alert("Welcome!");
+	
 	if (window.DeviceMotionEvent) {
 		window.addEventListener('devicemotion', deviceMotionHandler, false);
 	} else {
@@ -43,7 +45,7 @@ function showMap(value) {
     var local =  new BMap.LocalSearch(map, {renderOptions: {map: map, panel: "result", autoViewport: false}});
 	
 	local.clearResults();
-	local.searchNearby(searchText, mapPoint,500);
+	local.searchNearby(searchText, mapPoint, 500);
 }
 
 function showTempMap() {
