@@ -46,13 +46,13 @@ function showMap(value) {
     map.addOverlay(new BMap.Marker(mapPoint));
     map.panTo(mapPoint);
 	
-	map.enableScrollWheelZoom(); 
-	map.disableDragging();
-	
 	var circle = new BMap.Circle(mapPoint, 1000, {fillColor:"lightblue", strokeWeight: 1, fillOpacity: 0.3, strokeOpacity: 0.3});
     map.addOverlay(circle);
 	
     var local =  new BMap.LocalSearch(map, {renderOptions: {map: map, panel: "result", autoViewport: false}});
+		
+	map.enableScrollWheelZoom(); 
+	map.disableDragging();
 	
 	local.clearResults();
 	local.searchNearby(searchText, mapPoint, 500);
