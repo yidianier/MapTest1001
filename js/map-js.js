@@ -1,7 +1,7 @@
 /* entrance */
 window.onload = function() {	
 	//Show temp map;
-	//showTempMap();
+	showTempMap();
 	
 	if (window.DeviceMotionEvent) {
 		window.addEventListener('devicemotion', deviceMotionHandler, false);
@@ -10,8 +10,13 @@ window.onload = function() {
 	}
 };
 
+var SHAKE_THRESHOLD = 3000;
+var last_update = 0;
+var x = y = z = last_x = last_y = last_z = 0;
+
+var searchText = "";
+
 function showMap(value) {
-	var searchText = "";
 	var longitude = value.coords.longitude;  
     var latitude = value.coords.latitude; 
 	
@@ -72,10 +77,6 @@ function handleError(value) {
 }
 
 function deviceMotionHandler(eventData) {
-    var SHAKE_THRESHOLD = 3000;
-    var last_update = 0;
-    var x = y = z = last_x = last_y = last_z = 0;
-
     var acceleration = eventData.accelerationIncludingGravity;
     var curTime = new Date().getTime();
     if ((curTime - last_update) > 100) {
