@@ -1,12 +1,10 @@
 /* entrance */
 window.onload = function() {	
 	//Show temp map;
-	showTempMap();
+	//showTempMap();
 	
 	if (window.DeviceMotionEvent) {
-		document.getElementById("map-header").innerHTML = "shake1"
 		window.addEventListener('devicemotion', deviceMotionHandler, false);
-		document.getElementById("map-header").innerHTML = "shake2"
 	} else {
 		alert('not support mobile event');
 	}
@@ -47,8 +45,7 @@ function showTempMap() {
 
 function getLocation() {
 	//Get geo location  
-    if (navigator.geolocation) {  
-	document.getElementById("map-header").innerHTML = "sha"
+    if (navigator.geolocation) {
         navigator.geolocation.getCurrentPosition(showMap, handleError, { enableHighAccuracy: true, maximumAge: 1000 });  
     } else {  
         alert("您的浏览器不支持使用HTML 5来获取地理位置服务!");
@@ -90,7 +87,6 @@ function deviceMotionHandler(eventData) {
         var speed = Math.abs(x + y + z - last_x - last_y - last_z) / diffTime * 10000;
 
         if (speed > SHAKE_THRESHOLD) {
-			document.getElementById("map-header").innerHTML = "shake"
             getLocation();
         }
         last_x = x;
