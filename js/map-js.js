@@ -2,18 +2,28 @@
 window.onload = function() {	
 	//Show temp map;
 	showTempMap();
-	
-	alert("Welcome!");
-	
+		
 	if (window.DeviceMotionEvent) {
 		window.addEventListener('devicemotion', deviceMotionHandler, false);
 	} else {
-		alert('not support mobile event');
+		alert('Cannot support the mobile event!');
 	}
 	
 	document.getElementById("searchBtn").onclick = function() {	
-		searchText = document.getElementById("search").value;
-		getLocation();
+		searchMap("");
+	};
+	
+	document.getElementById("li-js1").onclick = function() {
+		searchMap("美食");
+	};
+	document.getElementById("li-js2").onclick = function() {
+		searchMap("酒店");
+	};
+	document.getElementById("li-js3").onclick = function() {
+		searchMap("银行");
+	};
+	document.getElementById("li-js4").onclick = function() {
+		searchMap("公交站");
 	};
 };
 
@@ -63,14 +73,14 @@ function getLocation() {
     if (navigator.geolocation) {
         navigator.geolocation.getCurrentPosition(showMap, handleError, { enableHighAccuracy: true, maximumAge: 1000 });  
     } else {  
-        alert("您的浏览器不支持使用HTML 5来获取地理位置服务!");
-    }  
+        alert("Your browser cannot support the geo-location service by HTML5!";
+    }
 }
 
 function handleError(value) {  
     switch (value.code) {  
         case 1:  
-            alert("位置服务被拒绝");  
+            alert("位置服务被拒绝"); 
             break;  
         case 2:  
             alert("暂时获取不到位置信息");  
@@ -84,6 +94,15 @@ function handleError(value) {
         default:
             break;
     }  
+}
+
+function searchMap(searchValue) {
+	if (searchValue == "") {
+		searchText = document.getElementById("search").value;
+	} else {
+		searchText = searchValue;
+	}	
+	getLocation();
 }
 
 function deviceMotionHandler(eventData) {

@@ -6,30 +6,35 @@
 		<meta name="keywords" content="map, 美食，酒店，地图，附近" />
 		<meta name="description" content="小助手可以查找附近的美食，酒店，KTV和其他生活娱乐服务。" />
 		<link rel="stylesheet" type="text/css" href="css/map-css.css" />
-		<script type="text/javascript" src="js/map-js.js"></script>
 		<script type="text/javascript" src="http://api.map.baidu.com/api?v=2.0&ak=qSxkGX9Gqh0oKXl06g6jEFMu"></script>
+		<script type="text/javascript" src="js/map-js.js"></script>		
 		<title>生活服务小助手</title>
 	</head>
 	<body>
 	<div class="map-container">
-		<header class="map-header"></header>
+		<header class="map-header">欢迎使用地图小助手~</header>
 		<div class="map-body">
 			<section class="item">
 				<nav class="nav">
-					<ul>
-						<li></li>
-						<li></li>
+					<ul>						
+						<li id="li-js1">美食</li>
+						<li id="li-js2">酒店</li>
+						<li id="li-js3">银行</li>
+						<li id="li-js4" class="last-style">公交站</li>
 					</ul>
 				</nav>
 				<div id="allmap"></div>
 			</section>
-			<section class="item">
-				<input id="search" type="text"></input>
-				<input id="searchBtn" type="button" value="Search"/>
+			<section class="item pull-right">
+				<div class="nav">
+					<input id="search" type="text"></input>
+					<input id="searchBtn" type="button" value="Search"/>
+				</div>
 				<div id="result"></div>
 			</section>
 		</div>
-		<footer class="map-footer"></footer>
+		<hr />
+		<footer class="map-footer">@2015&nbsp;小助手服务, &copy; All rights reserved.</footer>
 	</div>
 	<body>
 </html>

@@ -14,6 +14,11 @@ body {
 	margin: 0 auto;
 }
 
+body {
+	font-family: "Microsoft YaHei";
+	background-color: #666;
+}
+
 /* html5 element style */
 article,
 aside,
@@ -89,18 +94,31 @@ textarea
 }
 
 .map-header {
-	height: 30px;
+	height: 50px;
 	margin-top: 50px;
-	border: blue 1px solid;
+	color: #efefef;
+	font-family: "Microsoft YaHei";
+	font-size: 2em;
 }
 
 .map-body {
-	border: blue 1px solid;
+	margin: 10px auto;
 }
 
 .map-footer {
 	height: 30px;
-	border: red 1px solid;
+	line-height: 30px;
+	text-align: center;
+	margin-bottom: 10px;
+	color: #cdcdcd;
+}
+
+hr {
+	height: 2px;
+	border: transparent;
+	border-bottom: 1px solid #fff;
+	box-shadow: 0 1px 1px #bcbcbc;
+	margin-bottom: 10px;
 }
 
 .item {
@@ -109,30 +127,96 @@ textarea
 	display: inline-block;
 	height: 500px;
 	width: 49.5%;
-	border: blue 1px dotted;
+}
+
+.pull-right {
+	float: right;
+	overflow: hidden;
+	display: inline-block;
 }
 
 .nav {
+	width: 99%;
 	height: 30px;
-	border: orange 1px solid;
+}
+
+.nav ul {
+	height: 30px;
+	width: 100%;
+	border-bottom: none;	
+	border-top-left-radius: 5px;
+	border-top-right-radius: 5px;
+}
+
+.nav ul li {
+	height: 30px;
+	line-height: 30px;
+	width: 24.7%;
+	text-align: center;
+	color: #fff;
+	background-color: #20b2aa;
+	border-top-left-radius: 5px;
+	border-top-right-radius: 5px;
+	border-right: #dcdcdc 1px solid;
+}
+
+.nav ul li:hover {
+	cursor: pointer;
+}
+
+.nav ul li.last-style {
+	border: none;
+}
+
+#search {
+	float: left;
+	overflow: hidden;
+	display: inline-block;
+	width: 68%;
+	height: 20px;
+	line-height: 20px;
+	padding: 4px;
+	border: 0px transparent;
+	border-top-left-radius: 5px;
+	border-bottom-left-radius: 5px;
+}
+
+#searchBtn {
+	float: left;
+	overflow: hidden;
+	display: inline-block;
+	width: 28%;	
+	height: 28px;
+	line-height: 28px;
+	border: 0px transparent;
+	background-color: #20b2aa;
+	color: #fff;	
+	border-top-right-radius: 5px;
+	border-bottom-right-radius: 5px;
+	cursor: pointer;
 }
 
 #allmap,
 #result {
-	width: 100%;
-	height: 100%;
+	width: 99%;
+	height: 460px;
+	border-radius: 2px;
+	border: #20b2aa 1px solid;
+}
+#result {
+	border: none;
 }
 
  /* when view area 980px */
 @media screen and (max-width: 980px) {
 	.map-container {width: 80%;}
-	 .item {width: 100%;}
+	 .item {width: 100%; margin: 0 auto;}
      #footer {padding: 8% 5%;margin-bottom: 10px;}
 }
  /* when view area < 650px */
 @media screen and (max-width: 650px) {
 	.map-container {width: 100%;}
-	 .item {width: 100%;}
+	 .item {width: 100%; margin: 10px auto;}
      #footer {padding: 8% 5%;margin-bottom: 10px;}
  }
 
