@@ -1,0 +1,131 @@
+/* CSS Document */
+@charset "utf-8";
+
+/* -- common style */
+* {
+	margin: 0;
+	padding: 0;
+	outline-style: none;
+}
+
+html,
+body {
+	width: 100%;
+	margin: 0 auto;
+	overflow: hidden;
+}
+
+/* html5 element style */
+article,
+aside,
+details,
+figcaption,
+figure,
+footer,
+header,
+hgroup,
+menu,
+nav,
+section {
+	display: block;
+}
+
+a {
+	cursor: pointer;
+	display: block;
+	transition: color 1s;
+	text-decoration: none;
+	-moz-transition: color 1s;	/* Firefox 4 */
+	-webkit-transition: color 1s;	/* Safari and Chrome */
+	-o-transition: color 1s;	/* Opera */
+}
+
+/* image common style */
+img {
+	max-width: 100%;
+	height: auto;
+	border: none;
+}
+
+/* common list style */
+ul {
+    list-style: none;
+    outline-style: none;
+    list-style-type: none;
+    float: left;
+    overflow: hidden;
+    display: inline;
+}
+ul li {
+    float: left;
+    overflow: hidden;
+    display: inline;
+}
+
+textarea 
+{
+    resize: none;
+}
+
+.clearfix {
+	zoom: 1;
+	clear: both;
+}
+/* common style -- */
+
+.map-header,
+.map-body,
+.map-footer {
+	width: 80%;
+	min-width: 480px;
+	margin: 0 auto;
+}
+
+.map-header {
+	height: 30px;
+	margin-top: 50px;
+	border: blue 1px solid;
+}
+
+.map-body {
+	position: absolute;
+	margin-top: 40px;
+	border: blue 1px solid;
+}
+
+.map-footer {
+	position: absolute;
+	bottom: 0;
+	height: 30px;
+	border: red 1px solid;
+}
+
+.item {
+	float: left;
+	overflow: hidden;
+	display: inline-block;
+	height: 500px;
+	width: 49.5%;
+	border: blue 1px dotted;
+}
+
+.pull-right {
+	float: right;
+	overflow: hidden;
+	display: inline-block;
+}
+
+.nav {
+	height: 30px;
+	border: orange 1px solid;
+}
+
+#allmap,
+#result {
+	width: 100%;
+	height: 100%;
+}
+
+
+
+
