@@ -8,9 +8,14 @@ window.onload = function() {
 	} else {
 		alert('not support mobile event');
 	}
+	
+	document.getElementById("searchBtn").onclick = function() {	
+		searchText = document.getElementById("search").value;
+		getLocation();
+	};
 };
 
-var SHAKE_THRESHOLD = 2000;
+var SHAKE_THRESHOLD = 1500;
 var last_update = 0;
 var x = y = z = last_x = last_y = last_z = 0;
 
@@ -31,8 +36,11 @@ function showMap(value) {
 	
 	var circle = new BMap.Circle(mapPoint, 1000, {fillColor:"lightblue", strokeWeight: 1, fillOpacity: 0.3, strokeOpacity: 0.3});
     map.addOverlay(circle);
+	map.enableScrollWheelZoom(); 
+	map.disableDragging();
+	
     var local =  new BMap.LocalSearch(map, {renderOptions: {map: map, panel: "result", autoViewport: false}});
-    //map.enableScrollWheelZoom(true);    
+	
 	local.clearResults();
 	local.searchNearby(searchText, mapPoint,500);
 }
@@ -42,7 +50,7 @@ function showTempMap() {
     var map = new BMap.Map("allmap");          
 	var mapPoint = new BMap.Point(113.42, 34.44);
     map.centerAndZoom(mapPoint, 5);
-	//map.disableDragging();
+	map.disableDragging();
 	
 	map.enableScrollWheelZoom();
     var local =  new BMap.LocalSearch(map, {renderOptions: {map: map, autoViewport: false}});
