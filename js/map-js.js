@@ -37,8 +37,6 @@ function showMap(value) {
 	var longitude = value.coords.longitude;  
     var latitude = value.coords.latitude; 
 	
-	searchText = document.getElementById("search").value;
-
     // Baidu Map API function
     var map = new BMap.Map("allmap");          
 	var mapPoint = new BMap.Point(longitude+0.01085, latitude+0.00368);
@@ -117,7 +115,7 @@ function deviceMotionHandler(eventData) {
         var speed = Math.abs(x + y + z - last_x - last_y - last_z) / diffTime * 10000;
 
         if (speed > SHAKE_THRESHOLD) {
-            getLocation();
+            searchMap("");
         }
         last_x = x;
         last_y = y;
