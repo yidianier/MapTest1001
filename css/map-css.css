@@ -221,14 +221,8 @@ hr {
 }
 #result {
 	height: auto;
+	min-height: 460px;
 	border: none;
-}
-
-#shmap {
-	width: 100%;
-	height: 460px;
-	display: block;	
-	border-radius: 3px;
 }
 
  /* when view area 980px */
