@@ -61,6 +61,7 @@ function showMap(value) {
 	
 	local.clearResults();
 	local.searchNearby(searchText, mapPoint, 800);
+	searchText = "";
 }
 
 function showTempMap() {
