@@ -11,21 +11,26 @@ window.onload = function() {
 		alert('Cannot support the mobile event!');
 	}
 	
-	document.getElementById("searchBtn").onclick = function() {	
-		searchMap("");
+	document.getElementById("searchBtn").onclick = function() {		
+		searchText = document.getElementById("search").value;
+		searchMap();
 	};
 	
 	document.getElementById("li-js1").onclick = function() {
-		searchMap("美食");
+		searchText = "美食";
+		searchMap();
 	};
 	document.getElementById("li-js2").onclick = function() {
-		searchMap("酒店");
+		searchText = "酒店";
+		searchMap();
 	};
 	document.getElementById("li-js3").onclick = function() {
-		searchMap("银行");
+		searchText = "银行";
+		searchMap();
 	};
 	document.getElementById("li-js4").onclick = function() {
-		searchMap("公交站");
+		searchText = "公交站";
+		searchMap();
 	};
 };
 
@@ -33,7 +38,7 @@ var SHAKE_THRESHOLD = 1500;
 var last_update = 0;
 var x = y = z = last_x = last_y = last_z = 0;
 
-var searchText = "";
+var searchText = "美食";
 
 function showMap(value) {	
 	var longitude = value.coords.longitude;  
@@ -55,7 +60,7 @@ function showMap(value) {
 	map.disableDragging();
 	
 	local.clearResults();
-	local.searchNearby(searchText, mapPoint, 500);
+	local.searchNearby(searchText, mapPoint, 800);
 }
 
 function showTempMap() {
@@ -106,11 +111,9 @@ function handleError(value) {
     }  
 }
 
-function searchMap(searchValue) {
-	if (searchValue == "") {
-		searchText = document.getElementById("search").value;
-	} else {
-		searchText = searchValue;
+function searchMap() {	
+	if (searchText == "") {
+		searchText = "小吃";
 	}	
 	getLocation();
 }
@@ -127,7 +130,7 @@ function deviceMotionHandler(eventData) {
         var speed = Math.abs(x + y + z - last_x - last_y - last_z) / diffTime * 10000;
 
         if (speed > SHAKE_THRESHOLD) {
-            searchMap("");
+            searchMap();
         }
         last_x = x;
         last_y = y;
