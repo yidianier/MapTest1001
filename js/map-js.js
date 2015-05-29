@@ -1,10 +1,7 @@
 /* entrance */
 window.onload = function() {	
 	//Show temp map;
-	showTempMap();
-	
-	showSHTempMap();
-		
+
 	if (window.DeviceMotionEvent) {
 		window.addEventListener('devicemotion', deviceMotionHandler, false);
 	} else {
@@ -63,25 +60,6 @@ function showMap(value) {
 	local.searchNearby(searchText, mapPoint, 800);
 }
 
-function showTempMap() {
-    // Baidu Map API function
-    var map = new BMap.Map("allmap");          
-	var mapPoint = new BMap.Point(113.42, 34.44);
-    map.centerAndZoom(mapPoint, 5);
-	map.disableDragging();	
-	map.enableScrollWheelZoom();
-    var local =  new BMap.LocalSearch(map, {renderOptions: {map: map, autoViewport: false}});
-}
-
-function showSHTempMap() {
-    // Baidu Map API function
-    var map = new BMap.Map("result");          
-	var mapPoint = new BMap.Point(121.48, 31.22);
-    map.centerAndZoom(mapPoint, 11);
-	map.disableDragging();	
-	map.enableScrollWheelZoom();
-    var local =  new BMap.LocalSearch(map, {renderOptions: {map: map, autoViewport: false}});
-}
 
 function getLocation() {
 	//Get geo location  
