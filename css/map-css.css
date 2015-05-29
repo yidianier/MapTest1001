@@ -213,13 +213,15 @@ hr {
  /* when view area 980px */
 @media screen and (max-width: 980px) {
 	.map-container {width: 80%;}
-	 .item {width: 100%; margin: 0 auto;}
+	 .item {width: 100%; margin: 0 auto;}	 
+	 .item {width: 99%; margin: 0 auto;}
      #footer {padding: 8% 5%;margin-bottom: 5px;}
 }
  /* when view area < 650px */
 @media screen and (max-width: 650px) {
 	.map-container {width: 100%;}
 	 .item {width: 100%; margin: 5px auto;}
+	 .nav {width: 100%; margin: 5px auto;}
      #footer {padding: 8% 5%;margin-bottom: 5px;}
  }
 
