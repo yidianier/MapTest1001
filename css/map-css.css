@@ -225,7 +225,8 @@ hr {
 
  /* when view area 980px */
 @media screen and (max-width: 980px) {
-	.map-container {width: 80%;}	 
+	.map-container {width: 80%;}
+	 .item {width: 100%; margin: 0 auto;}	 
 	 .nav {width: 99%; margin: 0 auto;}
 	 #search {width: 68%;}
 	 #searchBtn {width: 30%;}
@@ -234,6 +235,7 @@ hr {
  /* when view area < 650px */
 @media screen and (max-width: 650px) {
 	.map-container {width: 100%;}
+	 .item {width: 100%; margin: 5px auto;}
 	 .nav {width: 100%; margin: 0px auto;}
 	 #search {width: 60%;}
 	 #searchBtn {width: 20%;}
