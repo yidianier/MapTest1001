@@ -4,7 +4,9 @@ window.onload = function() {
 	showTempMap();
 	
 	if (window.DeviceMotionEvent) {
+		document.getElementById("map-header").innerHTML = "shake1"
 		window.addEventListener('devicemotion', deviceMotionHandler, false);
+		document.getElementById("map-header").innerHTML = "shake2"
 	} else {
 		alert('not support mobile event');
 	}
@@ -46,25 +48,26 @@ function showTempMap() {
 function getLocation() {
 	//Get geo location  
     if (navigator.geolocation) {  
+	document.getElementById("map-header").innerHTML = "sha"
         navigator.geolocation.getCurrentPosition(showMap, handleError, { enableHighAccuracy: true, maximumAge: 1000 });  
     } else {  
-        alert("ÄúµÄä¯ÀÀÆ÷²»Ö§³ÖÊ¹ÓÃHTML 5À´»ñÈ¡µØÀíÎ»ÖÃ·şÎñ!");  
+        alert("æ‚¨çš„æµè§ˆå™¨ä¸æ”¯æŒä½¿ç”¨HTML 5æ¥è·å–åœ°ç†ä½ç½®æœåŠ¡!");
     }  
 }
 
 function handleError(value) {  
     switch (value.code) {  
         case 1:  
-            alert("Î»ÖÃ·şÎñ±»¾Ü¾ø");  
+            alert("ä½ç½®æœåŠ¡è¢«æ‹’ç»");  
             break;  
         case 2:  
-            alert("ÔİÊ±»ñÈ¡²»µ½Î»ÖÃĞÅÏ¢");  
+            alert("æš‚æ—¶è·å–ä¸åˆ°ä½ç½®ä¿¡æ¯");  
             break;  
         case 3:  
-            alert("»ñÈ¡ĞÅÏ¢³¬Ê±");  
+            alert("è·å–ä¿¡æ¯è¶…æ—¶");  
             break;  
         case 4:  
-            alert("Î´Öª´íÎó");  
+            alert("æœªçŸ¥é”™è¯¯");  
             break;
         default:
             break;
